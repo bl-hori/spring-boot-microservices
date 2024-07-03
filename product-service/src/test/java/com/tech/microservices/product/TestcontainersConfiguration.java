@@ -1,4 +1,4 @@
-package com.tech.microservices.product_service;
+package com.tech.microservices.product;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
