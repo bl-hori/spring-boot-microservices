@@ -1,4 +1,4 @@
-package com.tech.microservices.product.mapper;
+package com.tech.microservices.product.dto;
 
 import java.math.BigDecimal;
 

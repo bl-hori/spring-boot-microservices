@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.tech.microservices.product.mapper.ProductRequest;
-import com.tech.microservices.product.mapper.ProductResponse;
+import com.tech.microservices.product.dto.ProductRequest;
+import com.tech.microservices.product.dto.ProductResponse;
 import com.tech.microservices.product.model.Product;
 import com.tech.microservices.product.repository.ProductRepository;
 
