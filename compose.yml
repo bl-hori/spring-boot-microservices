@@ -23,5 +23,18 @@ services:
     depends_on:
       - mongodb
 
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=order_service
+    volumes:
+      - vol_mysql:/var/lib/mysql
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
 volumes:
   vol_mongodb:
+  vol_mysql:
