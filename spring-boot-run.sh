@@ -20,3 +20,13 @@ mvn -q clean spring-boot:run &
 echo "Starting Inventory Service..."
 cd $r/inventory-service
 mvn -q clean spring-boot:run &
+
+# Discovery Server
+echo "Starting Discovery Server..."
+cd $r/discovery-server
+mvn -q clean spring-boot:run &
+
+# API Gateway
+echo "Starting API Gateway..."
+cd $r/api-gateway
+mvn -q clean spring-boot:run &

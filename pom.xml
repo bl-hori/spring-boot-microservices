@@ -20,6 +20,8 @@
         <module>product-service</module>
         <module>order-service</module>
         <module>inventory-service</module>
+        <module>discovery-server</module>
+        <module>api-gateway</module>
     </modules>
 
     <properties>
@@ -75,8 +77,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <skip>true</skip>
-
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
