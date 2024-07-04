@@ -1,8 +1,6 @@
-package com.tech.microservices.order_service;
+package com.tech.microservices.order;
 
 import org.springframework.boot.SpringApplication;
-
-import com.tech.microservices.order.OrderServiceApplication;
 
 public class TestOrderServiceApplication {
 
