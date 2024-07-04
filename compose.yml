@@ -9,7 +9,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=password
       - MONGO_INITDB_DATABASE=product-service
     volumes:
-      - vol_mongodb:/data/db
+      - mongodb_data:/data/db
 
   mongo-express:
     image: mongo-express
@@ -30,11 +30,31 @@ services:
       - 3306:3306
     environment:
       - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=order_service
+      - MYSQL_DATABASE=sonarqube
+      - MYSQL_USER=sonar
+      - MYSQL_PASSWORD=sonar
     volumes:
-      - vol_mysql:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
       - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+
+  sonarqube:
+    image: sonarqube:latest
+    container_name: sonarqube
+    ports:
+      - 9000:9000
+      - 9092:9092
+    environment:
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+      - SONARQUBE_JDBC_USERNAME=sonar
+      - SONARQUBE_JDBC_PASSWORD=sonar
+      - "SONARQUBE_JDBC_URL=jdbc:mysql://mysql:3306/sonar?useUnicode=true&characterEncoding=utf8"
+    volumes:
+      - sonarqube_data:/opt/sonarqube
+    depends_on:
+      - mysql
 
 volumes:
-  vol_mongodb:
-  vol_mysql:
+  mongodb_data:
+  mysql_data:
+  sonarqube_data:
